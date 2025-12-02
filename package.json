@@ -1,0 +1,62 @@
+{
+  "name": "tcmconstructions",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://sumit4-4singh.github.io/tcmconstructions",
+  "dependencies": {
+    "@headlessui/react": "^2.2.6",
+    "@heroicons/react": "^2.2.0",
+    "@react-three/drei": "^9.88.13",
+    "@react-three/fiber": "^8.16.8",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "framer-motion": "^12.23.24",
+    "gsap": "^3.13.0",
+    "howler": "^2.2.4",
+    "inter": "^2.1.0",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.545.0",
+    "plausible-tracker": "^0.3.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-pageflip": "^2.0.3",
+    "react-parallax-tilt": "^1.7.301",
+    "react-router-dom": "^6.26.2",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.3",
+    "react-tsparticles": "^2.12.2",
+    "three": "^0.178.0",
+    "tsparticles": "^3.8.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "ajv": "$ajv@^6.12.6",
+    "ajv-keywords": "$ajv-keywords@^3.5.2"
+  }
+}
