@@ -1,8 +1,8 @@
 {
-  "name": "tcmconstructions",
+  "name": "tcm",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://sumit4-4singh.github.io/tcmconstructions",
+  "homepage": "https://sumitsingh498.github.io/tcm",
   "dependencies": {
     "@headlessui/react": "^2.2.6",
     "@heroicons/react": "^2.2.0",
