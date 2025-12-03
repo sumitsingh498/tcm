@@ -1,5 +1,4 @@
-// src/pages/Home.jsx → FINAL WORKING VERSION (No postprocessing needed)
-
+// src/pages/Home.jsx → 100% RESPONSIVE (Mobile + Tablet + Desktop) with FULL 3D Background
 import React, { useState, useEffect, useRef, Suspense, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
@@ -17,7 +16,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, MessageCircle, Bot, Send, X } from "lucide-react";
 
 /* ========================
-   Floating CTA Buttons
+   Floating CTA Buttons (Responsive)
    ======================== */
 function FloatingActions() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,30 +32,30 @@ function FloatingActions() {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed z-50 flex flex-col gap-4 left-4 bottom-20 md:bottom-24"
+      className="fixed z-50 flex flex-col gap-3 left-3 bottom-20 sm:gap-4 sm:left-4 sm:bottom-24"
     >
       <a
-        href="https://wa.me/919999999999"
+        href="https://wa.me/918685882050"
         target="_blank"
         rel="noreferrer"
-        className="relative flex items-center justify-center transition-all duration-300 bg-green-500 rounded-full shadow-2xl group w-14 h-14 hover:scale-110"
+        className="flex items-center justify-center w-12 h-12 transition-all duration-300 bg-green-500 rounded-full shadow-2xl group sm:w-14 sm:h-14 hover:scale-110"
         aria-label="WhatsApp"
       >
-        <MessageCircle className="w-8 h-8 text-white" />
+        <MessageCircle className="text-white w-7 h-7 sm:w-8 sm:h-8" />
       </a>
       <a
-        href="tel:+919999999999"
-        className="relative flex items-center justify-center transition-all duration-300 bg-blue-600 rounded-full shadow-2xl group w-14 h-14 hover:scale-110"
+        href="tel:+918685882050"
+        className="flex items-center justify-center w-12 h-12 transition-all duration-300 bg-blue-600 rounded-full shadow-2xl group sm:w-14 sm:h-14 hover:scale-110"
         aria-label="Call"
       >
-        <Phone className="w-8 h-8 text-white" />
+        <Phone className="text-white w-7 h-7 sm:w-8 sm:h-8" />
       </a>
     </motion.div>
   );
 }
 
 /* ========================
-   Compact Chatbot
+   Compact Chatbot (Responsive)
    ======================== */
 const Chatbot = React.memo(() => {
   const [open, setOpen] = useState(false);
@@ -76,7 +75,7 @@ const Chatbot = React.memo(() => {
   };
 
   return (
-    <div className="fixed z-50 right-4 bottom-20 md:bottom-24">
+    <div className="fixed z-50 right-3 bottom-20 sm:right-4 sm:bottom-24">
       {!open ? (
         <motion.button
           initial={{ scale: 0, rotate: -180 }}
@@ -84,26 +83,26 @@ const Chatbot = React.memo(() => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setOpen(true)}
-          className="w-16 h-16 bg-gradient-to-br from-[#5183bb] via-[#1e4b80] to-[#2C74B3] rounded-full shadow-2xl flex items-center justify-center border border-white/20"
+          className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[#5183bb] via-[#1e4b80] to-[#2C74B3] rounded-full shadow-2xl flex items-center justify-center border border-white/20"
         >
-          <Bot className="w-10 h-10 text-white drop-shadow-lg" />
+          <Bot className="w-8 h-8 text-white sm:w-10 sm:h-10 drop-shadow-lg" />
         </motion.button>
       ) : (
         <motion.div
           initial={{ y: 100, scale: 0.9, opacity: 0 }}
           animate={{ y: 0, scale: 1, opacity: 1 }}
-          className="w-80 md:w-96 h-[480px] bg-white rounded-3xl shadow-3xl overflow-hidden flex flex-col border border-gray-200"
+          className="w-72 sm:w-80 md:w-96 h-[400px] sm:h-[480px] bg-white rounded-3xl shadow-3xl overflow-hidden flex flex-col border border-gray-200"
         >
-          <div className="p-4 bg-gradient-to-r from-[#4782c5] to-[#2C74B3] text-white flex justify-between items-center">
+          <div className="p-3 sm:p-4 bg-gradient-to-r from-[#4782c5] to-[#2C74B3] text-white flex justify-between items-center">
             <div>
-              <div className="text-lg font-bold">TCM Assistant</div>
+              <div className="text-base font-bold sm:text-lg">TCM Assistant</div>
               <div className="text-xs opacity-90">Typically replies in minutes</div>
             </div>
             <button onClick={() => setOpen(false)} className="p-1 transition rounded-full hover:bg-white/20">
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
-          <div className="flex-1 p-4 space-y-4 overflow-y-auto bg-gradient-to-b from-gray-50 to-white">
+          <div className="flex-1 p-3 space-y-3 overflow-y-auto text-sm sm:p-4 sm:space-y-4 bg-gradient-to-b from-gray-50 to-white">
             {messages.map((msg, i) => (
               <motion.div
                 key={i}
@@ -112,7 +111,7 @@ const Chatbot = React.memo(() => {
                 className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm font-medium shadow-sm ${
+                  className={`max-w-[85%] px-3 sm:px-4 py-2 sm:py-3 rounded-2xl text-sm font-medium shadow-sm ${
                     msg.from === "user" ? "bg-[#2C74B3] text-white" : "bg-gray-100 text-gray-800"
                   }`}
                 >
@@ -121,16 +120,16 @@ const Chatbot = React.memo(() => {
               </motion.div>
             ))}
           </div>
-          <div className="flex gap-2 p-4 bg-white border-t">
+          <div className="flex gap-2 p-3 bg-white border-t sm:p-4">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
               placeholder="Ask about projects..."
-              className="flex-1 px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:border-[#2C74B3] transition"
+              className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-full border border-gray-300 focus:outline-none focus:border-[#2C74B3] transition text-sm"
             />
-            <button onClick={sendMessage} className="bg-[#2C74B3] hover:bg-[#1e4b80] text-white p-3 rounded-full transition">
-              <Send className="w-5 h-5" />
+            <button onClick={sendMessage} className="bg-[#2C74B3] hover:bg-[#1e4b80] text-white p-2 sm:p-3 rounded-full transition">
+              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </motion.div>
@@ -140,7 +139,7 @@ const Chatbot = React.memo(() => {
 });
 
 /* ========================
-   Instanced Skyline (90 buildings)
+   Instanced Skyline (90 buildings) - UNCHANGED
    ======================== */
 const buildings = [...Array(90)].map(() => ({
   position: [(Math.random() - 0.5) * 90, 0, -Math.random() * 80 - 10],
@@ -169,7 +168,7 @@ function Skyline() {
 }
 
 /* ========================
-   Animated Neon Grid
+   Animated Neon Grid - UNCHANGED
    ======================== */
 function NeonGrid() {
   const gridRef = useRef();
@@ -210,7 +209,7 @@ function NeonGrid() {
 }
 
 /* ========================
-   Parallax Particle Field
+   Parallax Particle Field - UNCHANGED
    ======================== */
 function ParticleField() {
   const points = useMemo(() => {
@@ -239,7 +238,7 @@ function ParticleField() {
 }
 
 /* ========================
-   Main 3D Scene – NO postprocessing!
+   Main 3D Scene – NO postprocessing! UNCHANGED
    ======================== */
 function Scene() {
   return (
@@ -269,7 +268,7 @@ function Scene() {
 }
 
 /* ========================
-   Hero Page
+   Hero Page - NOW RESPONSIVE
    ======================== */
 export default function Home() {
   const [typedText, setTypedText] = useState("");
@@ -290,7 +289,7 @@ export default function Home() {
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#020d1a] to-[#04182b]">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Canvas shadows dpr={[1, 2]}>
+        <Canvas shadows dpr={[1, 1.5]}>
           <Suspense fallback={null}>
             <Scene />
           </Suspense>
@@ -301,49 +300,49 @@ export default function Home() {
       <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-blue/80 via-black/40 to-transparent" />
 
       {/* Hero Content */}
-      <div className="relative z-20 flex items-center justify-center min-h-screen px-6 py-32">
+      <div className="relative z-20 flex items-center justify-center min-h-screen px-4 py-20 sm:px-6 sm:py-32">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
           className="mx-auto text-center max-w-7xl"
         >
-          <h1 className="font-black text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] leading-none tracking-tighter">
+          <h1 className="font-black text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] leading-none tracking-tighter">
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f233a] via-[#39A0ED] to-[#F9A826] drop-shadow-2xl">
               TCM
             </span>
-            <span className="block mt-4 text-5xl font-bold text-white/95 md:text-7xl lg:text-8xl">
-              CONSTRUCTIONS
+            <span className="block mt-2 text-4xl font-bold sm:mt-4 sm:text-5xl md:text-7xl lg:text-8xl text-white/95">
+              CONSTRUCTION
             </span>
           </h1>
 
-          <div className="flex items-center justify-center h-24 mt-10">
-            <h2 className="text-2xl font-medium text-gray-200 md:text-4xl lg:text-5xl">
+          <div className="flex items-center justify-center h-20 mt-6 sm:h-24 sm:mt-10">
+            <h2 className="text-xl font-medium text-gray-200 sm:text-2xl md:text-4xl lg:text-5xl">
               {typedText}
-              <span className="inline-block ml-2 w-1 h-12 bg-[#F9A826] animate-pulse" />
+              <span className="inline-block ml-2 w-1 h-10 sm:h-12 bg-[#F9A826] animate-pulse" />
             </h2>
           </div>
 
-          <p className="max-w-3xl mx-auto mt-6 text-lg font-light text-gray-300 md:text-xl">
+          <p className="max-w-3xl mx-auto mt-4 text-base font-light text-gray-300 sm:mt-6 sm:text-lg">
             Led by <span className="font-bold text-[#F9A826]">Prop. Anuj</span> • 500+ Landmark Projects • Gurugram, Haryana
           </p>
 
-          <div className="flex flex-col justify-center gap-6 mt-12 sm:flex-row">
+          <div className="flex flex-col justify-center gap-4 mt-8 sm:gap-6 sm:mt-12 sm:flex-row">
             <a
               href="/contact"
-              className="group px-12 py-5 bg-gradient-to-r from-[#F9A826] to-[#ff6b1b] text-white font-bold text-xl rounded-full shadow-2xl hover:shadow-[#F9A826]/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+              className="group px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#F9A826] to-[#ff6b1b] text-white font-bold text-lg sm:text-xl rounded-full shadow-2xl hover:shadow-[#F9A826]/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3"
             >
-              Start Your Project <ArrowRight className="transition w-7 h-7 group-hover:translate-x-1" />
+              Start Your Project <ArrowRight className="w-6 h-6 transition sm:w-7 sm:h-7 group-hover:translate-x-1" />
             </a>
             <a
               href="/projects"
-              className="px-12 py-5 text-xl font-bold text-white transition-all duration-300 border-4 rounded-full border-white/30 backdrop-blur-sm hover:bg-white/10"
+              className="px-8 py-4 text-lg font-bold text-white transition-all duration-300 border-4 rounded-full sm:px-12 sm:py-5 sm:text-xl border-white/30 backdrop-blur-sm hover:bg-white/10"
             >
               View Our Work
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 mt-20 text-center md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 mt-12 text-center sm:gap-10 sm:mt-20 md:grid-cols-4">
             {[
               { value: "500+", label: "Projects Delivered" },
               { value: "20+", label: "Years of Excellence" },
@@ -356,10 +355,10 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
               >
-                <div className="text-5xl md:text-6xl font-extrabold text-[#F9A826] drop-shadow-lg">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#F9A826] drop-shadow-lg">
                   {stat.value}
                 </div>
-                <div className="mt-2 text-sm font-medium tracking-wider text-gray-400 uppercase md:text-base">
+                <div className="mt-1 text-xs font-medium tracking-wider text-gray-400 uppercase sm:mt-2 sm:text-sm md:text-base">
                   {stat.label}
                 </div>
               </motion.div>

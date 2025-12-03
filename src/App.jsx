@@ -37,7 +37,7 @@ export default function App() {
                   TCM
                 </h1>
                 <p className="text-3xl md:text-4xl font-bold text-[#F9A826] mt-4">
-                  CONSTRUCTIONS
+                  CONSTRUCTION
                 </p>
                 <div className="mt-8 mx-auto w-48 h-1 bg-gradient-to-r from-[#F9A826] via-[#FF7A2D] to-[#0A2647] rounded-full animate-pulse" />
               </div>
